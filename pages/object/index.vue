@@ -1,9 +1,18 @@
 <template>
-  <div>object</div>
+  <div>{{ data }}</div>
 </template>
 
-<script>
-export default {};
+<script setup>
+import { ref } from "vue";
+import { useAsyncData } from "nuxt/app";
+import axios from "axios";
+
+const { data } = await useAsyncData("filters", async () => {
+  const response = await axios.get(
+    "https://energyflow.b.goit.study/api/filters"
+  );
+  return response.data;
+});
 </script>
 
 <style lang="scss" scoped></style>
