@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { useAsyncData } from "nuxt/app";
 import axios from "axios";
 
